@@ -1,0 +1,36 @@
+.button {
+    width: 80px;
+    height: 30px;
+    border-radius: 25px;
+    border: 2px solid #eee;
+    background: #1a1a1a;
+
+    
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #eee;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    cursor: pointer;
+    transition: color, border .2s ease-in;
+}
+
+.button svg {
+    width: 20px;
+    fill: white;
+    transition: fill .2s ease-in;
+}
+
+.button:hover, .button:active {
+    color: #f8bf23;
+    border: 2px solid #f8bf23;
+    background: #444;
+}
+
+.button:hover svg {
+    fill: #f8bf23;
+}

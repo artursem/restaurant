@@ -1,0 +1,32 @@
+.header {
+    background-color: #1a1a1a;
+    width: auto;
+    min-height: 64px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+
+    list-style: none;
+}
+
+.links a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color .2s ease-in;
+}
+
+.links a:hover {
+    color: #f8bf23;
+}
