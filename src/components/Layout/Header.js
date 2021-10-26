@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import CartButton from "../Cart/CartButton";
 import classes from "./Header.module.css";
 
-function Header() {
+function Header(props) {
 	return (
 		<header className={classes.header}>
 			<Logo />
@@ -15,7 +15,7 @@ function Header() {
                     <a href="#">About us</a>
                 </li>
                 <li>
-                    <CartButton/>
+                    <CartButton onClick={props.onShowCart}/>
                 </li>
             </ul>
 		</header>
