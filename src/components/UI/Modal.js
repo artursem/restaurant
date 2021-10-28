@@ -17,7 +17,7 @@ const ModalOverlay = (props) => {
 			<div className={classes.content}>
 				{props.children}
 			</div>
-		</div>
+		</div>		
 	);
 };
 
