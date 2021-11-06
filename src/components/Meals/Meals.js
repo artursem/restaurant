@@ -31,7 +31,7 @@ const DUMMY_MEALS = [
 
 function Meals() {
 	const mealList = DUMMY_MEALS.map((meal) => {
-		return <MealItem meal={meal} />;
+		return <MealItem meal={meal} key={meal.key} />;
 	});
 
 	return <ul className={classes.list}>{mealList}</ul>;

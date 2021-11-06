@@ -32,23 +32,6 @@
     align-items: center;
 }
 
-.button {
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #1a1a1a;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.button:hover, .button:active {
-    transform: translateY(1px);
-}
-
 .icon {
     height: 50px; 
     margin-right: 15px;

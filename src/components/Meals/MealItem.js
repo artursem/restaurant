@@ -4,6 +4,7 @@ import sushi2 from "../../assets/sushi-2.png";
 import sushi3 from "../../assets/sushi-3.png";
 import sushi4 from "../../assets/sushi-4.png";
 import CartContext from "../../store/CartContext";
+import MealForm from "./MealForm";
 
 import classes from "./MealItem.module.css";
 
@@ -31,10 +32,7 @@ function MealItem(props) {
 
 				{props.meal.name}
 			</div>
-			<div>
-				<button className={classes.button}>+</button>
-				<input type="text" value="1" />
-			</div>
+			<MealForm/>
 		</li>
 	);
 }

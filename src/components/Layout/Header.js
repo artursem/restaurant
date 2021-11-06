@@ -9,10 +9,10 @@ function Header(props) {
 			<Logo />
             <ul className={classes.links}>
                 <li>
-                    <a href="#">Menu</a>
+                    <a href="/#">Menu</a>
                 </li>
                 <li>
-                    <a href="#">About us</a>
+                    <a href="/#">About us</a>
                 </li>
                 <li>
                     <CartButton onClick={props.onShowCart}/>
