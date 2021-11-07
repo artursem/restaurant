@@ -20,9 +20,10 @@
     background: #eee;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: scroll;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .content {

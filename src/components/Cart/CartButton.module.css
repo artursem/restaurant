@@ -26,11 +26,11 @@
 }
 
 .button:hover, .button:active {
-    color: #f8bf23;
-    border: 2px solid #f8bf23;
+    color: salmon;
+    border: 2px solid salmon;
     background: #444;
 }
 
 .button:hover svg {
-    fill: #f8bf23;
+    fill: salmon;
 }
