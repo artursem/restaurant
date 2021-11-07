@@ -14,8 +14,9 @@ const MealForm = (props) => {
             setisValid(false)
         } else {
             setisValid(true)
-            console.log('submit!', enteredAmount);
+            props.onSubmit(amountRef.current.value);
         }
+
     }
     
 

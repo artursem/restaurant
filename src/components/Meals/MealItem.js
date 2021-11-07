@@ -12,12 +12,14 @@ function MealItem(props) {
 	const icons = [sushi1, sushi2, sushi3, sushi4];
 
 	const cartContext = useContext(CartContext);
-	const addToCartContext = (amount) => {
+	const price = props.meal.cost.toFixed(2);
+
+	const handleAddToCart = (amount) => {
 		cartContext.addItem({
-			id: props.id,
-			name: props.name,
+			id: props.meal.id,
+			name: props.meal.name,
 			amount: amount,
-			price: props.price,
+			price: price,
 		});
 	};
 
@@ -32,7 +34,7 @@ function MealItem(props) {
 
 				{props.meal.name}
 			</div>
-			<MealForm/>
+			<MealForm onSubmit={handleAddToCart} />
 		</li>
 	);
 }

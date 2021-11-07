@@ -1,26 +1,47 @@
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 
-const defaultCartState = {
-	items: [],
-	totalAmount: 0,
-};
-
 const CART = {
 	ADD: "cart-add",
 	REMOVE: "cart-remove",
 };
 
-const cartReducer = (state, action) => {
-    switch (action) {
-        case CART.ADD:
-            console.log('add item');
-            return defaultCartState;
+const defaultCartState = {
+	items: [],
+	totalAmount: 0,
+};
 
-        default:
-        return defaultCartState;
-    }
-    
+const cartReducer = (state, action) => {
+	switch (action.type) {
+		case CART.ADD:
+			const updatedTotalAmount =
+				state.totalAmount + action.payload.price * action.payload.amount;
+			const existingCartItemIndex = state.items.findIndex(
+				(item) => item.id === action.payload.id
+			);
+			const existingCartItem = state.items[existingCartItemIndex];
+			let updatedItems;
+
+			if (existingCartItem) {
+				const updatedItem = {
+					...existingCartItem, 
+					amount: existingCartItem.amount + action.payload.amount,
+				};
+				updatedItems = [...state.items]
+				updatedItems[existingCartItemIndex] = updatedItem;
+			} else {
+				updatedItems = state.items.concat(action.payload)
+			}
+
+			return {
+				items: updatedItems,
+				totalAmount: updatedTotalAmount,
+			};
+		// case CART.REMOVE:
+		
+		default:
+			return defaultCartState;
+	}
 };
 
 const CartProvider = (props) => {
@@ -30,21 +51,21 @@ const CartProvider = (props) => {
 	);
 
 	const handleAddItemToCart = (item) => {
-		dispatchCartAction({ action: CART.ADD, payload: item });
+		dispatchCartAction({ type: CART.ADD, payload: item });
 	};
 
 	const handleRemoveItemFromCart = (id) => {
 		dispatchCartAction({
-			action: CART.REMOVE,
+			type: CART.REMOVE,
 			payload: id,
 		});
 	};
 
 	const cartContext = {
-		items: [],
-		totalAmount: 0,
-		addItem: (item) => {},
-		removeItem: (id) => {},
+		items: cartState.items,
+		totalAmount: cartState.totalAmount,
+		addItem: handleAddItemToCart,
+		removeItem: handleRemoveItemFromCart,
 	};
 
 	return (
