@@ -26,9 +26,10 @@
 
 .price {
     font-size: .9rem;
+    margin-right: 1rem;
 }
 
 .amount {
     font-size: 1rem;
-    margin-left: 1rem;
+    margin: 1rem;
 }

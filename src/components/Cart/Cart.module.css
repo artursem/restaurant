@@ -11,3 +11,46 @@
     text-align: right;
     margin: 5px;
 }
+
+.msg {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.buttons {
+    margin: 3rem;
+    /* border: 1px solid orangered; */
+    text-align: center;    
+}
+
+.buttons button {
+    margin: 1rem;
+    padding: 0.8rem;
+    border: 2px solid salmon;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btnPrimary {
+    background-color: salmon;
+    color: #eee;
+}
+
+.btnSecondary {
+    background-color: #eee;
+    color: salmon;
+}
+
+button:hover, button:active {
+    background-color: #af4c41;
+    border-color: #af4c41;
+    color: #eee;
+}
+
+button:active {
+    transform: translateY(1px);
+}
