@@ -1,14 +1,13 @@
-import { useContext } from "react";
-import CartContext from "../../store/CartContext";
+import { useSelector } from "react-redux";
 import CartIcon from "../Cart/CartIcon";
-import classes from "./CartButton.module.css"
+import classes from "./CartButton.module.css";
 
 function CartButton(props) {
-	const cartContext = useContext(CartContext);
-	const badge = cartContext.items.length;
+	const cartState = useSelector(state => state.cart.items)
+	const badge = cartState.length;
 
 	return (
-		<button className={classes.button} onClick={props.onClick} >
+		<button className={classes.button} onClick={props.onClick}>
 			<CartIcon />
 			<span>{badge}</span>
 		</button>

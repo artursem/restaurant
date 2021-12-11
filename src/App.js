@@ -1,27 +1,27 @@
-import { useState } from "react";
+import { Fragment } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { modalActions } from "./store";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
-import CartProvider from "./store/CartProvider";
-// import classes from "./App.module.css";
 
 function App() {
-	const [cartIsShown, setCartIsShown] = useState(false);
+	const dispatch = useDispatch();
+	const modalState = useSelector(state => state.modal.showModal)
 
-  const handleCartShow = () => {
-    setCartIsShown(true);
-  }
-  const handleCartHide = () => {
-    setCartIsShown(false);
-  }
-  
+	const handleCartShow = () => {
+		dispatch(modalActions.showModal());
+	};
+	const handleCartHide = () => {
+		dispatch(modalActions.hideModal());
+	};
 
 	return (
-		<CartProvider>
-			{cartIsShown && <Cart onClose={handleCartHide} />}
+		<Fragment>
+			{modalState && <Cart onClose={handleCartHide} />}
 			<Header onShowCart={handleCartShow} />
 			<Meals />
-		</CartProvider>
+		</Fragment>
 	);
 }
 

@@ -1,27 +1,34 @@
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store";
+import MealForm from "./MealForm";
+
 import sushi1 from "../../assets/sushi-1.png";
 import sushi2 from "../../assets/sushi-2.png";
 import sushi3 from "../../assets/sushi-3.png";
 import sushi4 from "../../assets/sushi-4.png";
-import CartContext from "../../store/CartContext";
-import MealForm from "./MealForm";
-
 import classes from "./MealItem.module.css";
 
 function MealItem(props) {
+	const dispatch = useDispatch();
 	const icons = [sushi1, sushi2, sushi3, sushi4];
-
-	const cartContext = useContext(CartContext);
+	
 	const price = props.meal.cost.toFixed(2);
-
 	const handleAddToCart = (amount) => {
-		cartContext.addItem({
-			id: props.meal.id,
+		dispatch(cartActions.addToCart({
+			id: props.meal.id, 
 			name: props.meal.name,
 			amount: amount,
-			price: price,
-		});
-	};
+			price: price
+		}))
+	}
+	// const handleAddToCart = (amount) => {
+	// 	cartContext.addItem({
+	// 		id: props.meal.id,
+	// 		name: props.meal.name,
+	// 		amount: amount,
+	// 		price: price,
+	// 	});
+	// };
 
 	return (
 		<li key={props.meal.key} className={classes.item}>
@@ -31,7 +38,6 @@ function MealItem(props) {
 					alt={props.meal.name}
 					className={classes.icon}
 				/>
-
 				{props.meal.name}
 			</div>
 			<MealForm onSubmit={handleAddToCart} />
