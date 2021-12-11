@@ -1,16 +1,16 @@
 .input  {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-right: 1rem;   
+    margin-right: 2rem;   
 }
 
 .input label {
     text-transform: none;
     font-size: 0.8rem;
     font-weight: 400;
-    
+    margin-right: 0.5rem;
 }
 
 .input input {
@@ -19,4 +19,5 @@
     font-size: 1rem;
     font-weight: bold;
     border: 1px solid #ddd;
+    margin-right: 1rem
 }

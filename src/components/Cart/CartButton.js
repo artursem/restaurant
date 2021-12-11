@@ -4,7 +4,10 @@ import classes from "./CartButton.module.css";
 
 function CartButton(props) {
 	const cartState = useSelector(state => state.cart.items)
-	const badge = cartState.length;
+	// const badge = cartState.length;
+	const badge = cartState.reduce((total, item)=>{
+		return total + parseInt(item.amount)
+	}, 0);
 
 	return (
 		<button className={classes.button} onClick={props.onClick}>
