@@ -1,13 +1,17 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { cartActions } from "../../store";
 
 import Modal from "../UI/Modal";
 import CartMeal from "./CartMeal";
 import classes from "./Cart.module.css";
 
 function Cart(props) {
-	const cartState = useSelector(state=> state.cart)
+	const cartState = useSelector(state=> state.cart);
+	const dispatch = useDispatch();
+	const handleOrder = () => {
+		dispatch(cartActions.order())
+	}
 	const totalAmount = `$${cartState.totalAmount.toFixed(2)}`;
-
 
 	const isEmpty = cartState.items.length === 0;
 	const itemList = cartState.items.map((item) => {
@@ -36,7 +40,7 @@ function Cart(props) {
                 <button className={classes.btnSecondary} onClick={props.onClose} >
                     Close
                 </button>
-                <button className={classes.btnPrimary} >
+                <button className={classes.btnPrimary} onClick={handleOrder}>
                     Order
                 </button>
             </div>}

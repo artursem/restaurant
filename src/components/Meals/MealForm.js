@@ -16,12 +16,13 @@ const MealForm = (props) => {
             setisValid(true)
             props.onSubmit(amountRef.current.value);
         }
-		
+
     }
     
 
 	return (
 		<form onSubmit={handleSubmit} className={classes.form} >
+			{!isValid && <p>Please enter valid amount (1-5)</p>}
 			<Input
 				ref={amountRef}
 				label="Amount"

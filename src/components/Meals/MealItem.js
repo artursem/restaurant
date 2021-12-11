@@ -17,19 +17,10 @@ function MealItem(props) {
 		dispatch(cartActions.addToCart({
 			id: props.meal.id, 
 			name: props.meal.name,
-			amount: amount,
+			amount: parseInt(amount),
 			price: price
 		}))
 	}
-	// const handleAddToCart = (amount) => {
-	// 	cartContext.addItem({
-	// 		id: props.meal.id,
-	// 		name: props.meal.name,
-	// 		amount: amount,
-	// 		price: price,
-	// 	});
-	// };
-
 	return (
 		<li key={props.meal.key} className={classes.item}>
 			<div>

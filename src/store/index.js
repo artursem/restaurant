@@ -29,6 +29,23 @@ const cartSlice = createSlice({
                 state.items[itemIdx].amount --
             )
 		},
+        order(state) {
+            console.log("ORDER!");
+            const orderedItems = [];
+            state.items.forEach(item=>orderedItems.push({
+                id: item.id,
+                name: item.name,
+                amount: item.amount,
+                price: item.price
+            }));
+            console.log(state.totalAmount);
+            const newOrder = {
+                id: Date.now(),
+                orderedItems,
+                totalAmount: state.totalAmount
+            }
+            console.log(newOrder);
+        }
 	},
 });
 
